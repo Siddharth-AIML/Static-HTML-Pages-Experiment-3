@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, width=device-width">
+      
+      <link rel="stylesheet" href="../styles/desktop3.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius Sans One:wght@400&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Miriam Libre:wght@600&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karma:wght@400&display=swap" />
+</head>
+<body>
+      <div class="desktop-3">
+            <!-- Logo positioned on right side -->
+            <img class="adobe-express-file-1" alt="" src="../img/logo.png">
+            
+            <!-- Sidebar -->
+             <div class="sidebar">
+                  <img class="vector-icon" alt="" src="../img/Vector.svg">
+                  
+                  <!-- Logo and brand -->
+                  <div class="brand-section">
+                    <div class="curely">Curely</div>
+                  </div>
+                  
+                  <!-- Navigation menu -->
+                  <nav class="nav-menu">
+                    <a href="desktop-3.html" class="nav-item active" data-page="dashboard">
+                          <span>DASHBOARD</span>
+                    </a>
+                    <a href="desktop-4.html" class="nav-item" data-page="appointments">
+                          <span>APPOINTMENTS</span>
+                    </a>
+                   
+                    <a href="desktop-5.html" class="nav-item" data-page="prescriptions">
+                          <span>PRESCRIPTIONS</span>
+                    </a>
+                    <a href="desktop-6.html" class="nav-item" data-page="reports">
+                          <span>REPORTS</span>
+                    </a>
+                  </nav>
+                  
+                  <!-- Settings -->
+                  <div class="settings">
+                    <img class="icon" alt="" src="../img/Settings.svg">
+                  </div>
+            </div>
+            
+            <!-- Main content area -->
+            <div class="main-content">
+                  <!-- Header -->
+                  <header class="header">
+                    <h1 class="welcome-dr-xyz">WELCOME DR Kulkarni</h1>
+                  </header>
+                  
+                  <!-- Dashboard content -->
+                  <div class="dashboard-content">
+                    <h2 class="dashboard-title">DASHBOARD</h2>
+                    
+                    <!-- Dashboard cards -->
+                    <div class="dashboard-grid">
+                          <!-- Appointments card -->
+                          <div class="dashboard-card">
+                            <h3 class="card-title">Appointments</h3>
+                            <div class="card-content">
+                                  <p>Upcoming appointments and schedule management</p>
+                            </div>
+                            <a href="desktop-4.html" class="view-more">View More →</a>
+                          </div>
+                          
+                          <!-- Pending Reports card -->
+                          <div class="dashboard-card">
+                            <h3 class="card-title">Pending Reports</h3>
+                            <div class="card-content">
+                                  <p>Reports waiting for your review</p>
+                            </div>
+                            <a href="desktop-6.html" class="view-more">View More →</a>
+                          </div>
+                          
+                          <!-- Patient Stats card -->
+                         
+                          <div class="dashboard-card">
+                            <h3 class="card-title">Prescriptions</h3>
+                            <div class="card-content">
+                                  <p>Complete Prescriptions</p>
+                            </div>
+                            <a href="desktop-5.html" class="view-more">Write Prescription →</a>
+                          </div>
+                    </div>
+                  </div>
+            </div>
+      </div>
+      
+      <script>
+            // Navigation functionality
+            document.querySelectorAll('.nav-item').forEach(item => {
+                  item.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        
+                        // Only prevent default for placeholder links (#)
+                        if (href && href !== '#') {
+                              return; // Let the browser handle the navigation
+                        }
+                        
+                        e.preventDefault();
+                        
+                        // Remove active class from all items
+                        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                        
+                        // Add active class to clicked item
+                        this.classList.add('active');
+                        
+                        const page = this.getAttribute('data-page');
+                        console.log('Navigating to:', page);
+                  });
+            });
+      </script>
+</body>
+</html>

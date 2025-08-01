@@ -1,0 +1,260 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Julius Sans One', sans-serif;
+    background-color: #d7ffc9;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Main container */
+.desktop-1 {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background-color: #d7ffc9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-family: 'Julius Sans One';
+}
+
+/* Background vector */
+.vector-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Logo */
+.adobe-express-file-1 {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    z-index: 3;
+}
+
+/* Side text */
+.welcome-to-curely2 {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    font-family: 'Flow Circular', sans-serif;
+    color: #fff;
+    z-index: 2;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.your-one-stop-container {
+    position: absolute;
+    bottom: 100px;
+    left: 30px;
+    font-family: 'Flow Block', sans-serif;
+    color: #fff;
+    z-index: 2;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+/* Form container */
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    margin-left: 200px;
+}
+
+/* Welcome text */
+.welcome-to-curely {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #000;
+}
+
+/* Input containers */
+.doctor-button, .doctor-button1 {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: 60px;
+}
+
+/* Input fields */
+.input-field {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    border: 2px solid #1f2f09;
+    background-color: #fff;
+    padding: 0 25px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #333;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #9bcd57;
+    box-shadow: 0 0 15px rgba(155, 205, 87, 0.4);
+}
+
+.input-field::placeholder {
+    color: #888;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Login button */
+.login {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.login:hover {
+    transform: scale(1.05);
+}
+
+.login-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    border-radius: 40px;
+    background-color: #9bcd57;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.login1 {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    z-index: 2;
+}
+
+.dont-have-an {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+}
+
+/* Signup button */
+.doctor-button2 {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-top: 10px;
+}
+
+.doctor-button2:hover {
+    transform: scale(1.05);
+}
+
+.doctor-button-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    background-color: #88ad56;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    z-index: 2;
+}
+
+/* Hide old elements */
+.doctor-button-child, .email-address {
+    display: none;
+}
+
+/* Hide decorative lines */
+.desktop-1-child, .desktop-1-item {
+    display: none;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .login-form-container {
+        margin-left: 100px;
+    }
+    
+    .vector-icon {
+        width: 25%;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-form-container {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .vector-icon {
+        opacity: 0.3;
+        width: 100%;
+    }
+    
+    .welcome-to-curely2,
+    .your-one-stop-container {
+        display: none;
+    }
+    
+    .welcome-to-curely {
+        font-size: 24px;
+    }
+}
+

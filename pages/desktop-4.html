@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, width=device-width">
+      
+      <link rel="stylesheet" href="../styles/desktop4.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius Sans One:wght@400&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Miriam Libre:wght@600&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karma:wght@400&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" />
+</head>
+<body>
+      <div class="desktop-4">
+            <!-- Logo positioned on right side -->
+            <img class="adobe-express-file-1" alt="" src="../img/logo.png">
+            
+            <!-- Sidebar -->
+            <div class="sidebar">
+                  <img class="vector-icon" alt="" src="../img/Vector.svg">
+                  
+                  <!-- Logo and brand -->
+                  <div class="brand-section">
+                    <div class="curely">Curely</div>
+                  </div>
+                  
+                  <!-- Navigation menu -->
+                  <nav class="nav-menu">
+                    <a href="desktop-3.html" class="nav-item" data-page="dashboard">
+                          <span>DASHBOARD</span>
+                    </a>
+                    <a href="desktop-4.html" class="nav-item active" data-page="appointments">
+                          <span>APPOINTMENTS</span>
+                    </a>
+                   
+                    <a href="desktop-5.html" class="nav-item" data-page="prescriptions">
+                          <span>PRESCRIPTIONS</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="reports">
+                          <span>REPORTS</span>
+                    </a>
+                  </nav>
+                  
+                  <!-- Settings -->
+                  <div class="settings">
+                    <img class="icon" alt="" src="../img/Settings.svg">
+                  </div>
+            </div>
+            
+            <!-- Main content area -->
+            <div class="main-content">
+                  <!-- Header -->
+                  <header class="header">
+                    <h1 class="welcome-dr-xyz">WELCOME DR Kulkarni</h1>
+                    <div class="date-time" id="currentDateTime"></div>
+                  </header>
+                  
+                  <!-- Appointments content -->
+                  <div class="appointments-content">
+                    <div class="page-header">
+                          <h2 class="page-title">APPOINTMENTS</h2>
+                          <button class="add-appointment-btn" id="addAppointmentBtn">
+                                <span>+ Add New Appointment</span>
+                          </button>
+                    </div>
+                    
+                    <!-- Filter and Search -->
+                    <div class="filter-section">
+                          <div class="search-box">
+                                <input type="text" id="searchInput" placeholder="Search appointments..." class="search-input">
+                          </div>
+                          <div class="filter-buttons">
+                                <button class="filter-btn active" data-filter="all">All</button>
+                                <button class="filter-btn" data-filter="today">Today</button>
+                                <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                                <button class="filter-btn" data-filter="completed">Completed</button>
+                          </div>
+                    </div>
+                    
+                    <!-- Appointments Table -->
+                    <div class="table-container">
+                          <table class="appointments-table" id="appointmentsTable">
+                                <thead>
+                                      <tr>
+                                            <th>Patient Name</th>
+                                            <th>Time</th>
+                                            <th>Phone Number</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                      </tr>
+                                </thead>
+                                <tbody id="appointmentsTableBody">
+                                      <tr class="appointment-row" data-status="upcoming">
+                                            <td class="patient-name">
+                                                  <div class="patient-info">
+                                                        <div class="patient-avatar">A</div>
+                                                        <span>Aryan Kulkarni</span>
+                                                  </div>
+                                            </td>
+                                            <td class="appointment-time">
+                                                  <div class="time-info">
+                                                        <span class="time">09:00 AM</span>
+                                                        <span class="date">Today</span>
+                                                  </div>
+                                            </td>
+                                            <td class="phone-number">+91 98765 43210</td>
+                                            <td class="status">
+                                                  <span class="status-badge upcoming">Upcoming</span>
+                                            </td>
+                                            <td class="actions">
+                                                  <button class="action-btn edit-btn" title="Edit">
+                                                        <span>✏️</span>
+                                                  </button>
+                                                  <button class="action-btn complete-btn" title="Mark Complete">
+                                                        <span>✓</span>
+                                                  </button>
+                                                  <button class="action-btn delete-btn" title="Cancel">
+                                                        <span>🗑️</span>
+                                                  </button>
+                                            </td>
+                                      </tr>
+                                      <tr class="appointment-row" data-status="today">
+                                            <td class="patient-name">
+                                                  <div class="patient-info">
+                                                        <div class="patient-avatar">P</div>
+                                                        <span>Priya Sharma</span>
+                                                  </div>
+                                            </td>
+                                            <td class="appointment-time">
+                                                  <div class="time-info">
+                                                        <span class="time">11:30 AM</span>
+                                                        <span class="date">Today</span>
+                                                  </div>
+                                            </td>
+                                            <td class="phone-number">+91 87654 32109</td>
+                                            <td class="status">
+                                                  <span class="status-badge today">Today</span>
+                                            </td>
+                                            <td class="actions">
+                                                  <button class="action-btn edit-btn" title="Edit">
+                                                        <span>✏️</span>
+                                                  </button>
+                                                  <button class="action-btn complete-btn" title="Mark Complete">
+                                                        <span>✓</span>
+                                                  </button>
+                                                  <button class="action-btn delete-btn" title="Cancel">
+                                                        <span>🗑️</span>
+                                                  </button>
+                                            </td>
+                                      </tr>
+                                      <tr class="appointment-row" data-status="upcoming">
+                                            <td class="patient-name">
+                                                  <div class="patient-info">
+                                                        <div class="patient-avatar">R</div>
+                                                        <span>Rahul Patel</span>
+                                                  </div>
+                                            </td>
+                                            <td class="appointment-time">
+                                                  <div class="time-info">
+                                                        <span class="time">02:15 PM</span>
+                                                        <span class="date">Tomorrow</span>
+                                                  </div>
+                                            </td>
+                                            <td class="phone-number">+91 76543 21098</td>
+                                            <td class="status">
+                                                  <span class="status-badge upcoming">Upcoming</span>
+                                            </td>
+                                            <td class="actions">
+                                                  <button class="action-btn edit-btn" title="Edit">
+                                                        <span>✏️</span>
+                                                  </button>
+                                                  <button class="action-btn complete-btn" title="Mark Complete">
+                                                        <span>✓</span>
+                                                  </button>
+                                                  <button class="action-btn delete-btn" title="Cancel">
+                                                        <span>🗑️</span>
+                                                  </button>
+                                            </td>
+                                      </tr>
+                                      <tr class="appointment-row" data-status="completed">
+                                            <td class="patient-name">
+                                                  <div class="patient-info">
+                                                        <div class="patient-avatar">S</div>
+                                                        <span>Sneha Gupta</span>
+                                                  </div>
+                                            </td>
+                                            <td class="appointment-time">
+                                                  <div class="time-info">
+                                                        <span class="time">04:00 PM</span>
+                                                        <span class="date">Yesterday</span>
+                                                  </div>
+                                            </td>
+                                            <td class="phone-number">+91 65432 10987</td>
+                                            <td class="status">
+                                                  <span class="status-badge completed">Completed</span>
+                                            </td>
+                                            <td class="actions">
+                                                  <button class="action-btn view-btn" title="View Details">
+                                                        <span>👁️</span>
+                                                  </button>
+                                                  <button class="action-btn delete-btn" title="Delete">
+                                                        <span>🗑️</span>
+                                                  </button>
+                                            </td>
+                                      </tr>
+                                      <tr class="appointment-row" data-status="upcoming">
+                                            <td class="patient-name">
+                                                  <div class="patient-info">
+                                                        <div class="patient-avatar">M</div>
+                                                        <span>Manish Kumar</span>
+                                                  </div>
+                                            </td>
+                                            <td class="appointment-time">
+                                                  <div class="time-info">
+                                                        <span class="time">10:45 AM</span>
+                                                        <span class="date">Aug 2</span>
+                                                  </div>
+                                            </td>
+                                            <td class="phone-number">+91 54321 09876</td>
+                                            <td class="status">
+                                                  <span class="status-badge upcoming">Upcoming</span>
+                                            </td>
+                                            <td class="actions">
+                                                  <button class="action-btn edit-btn" title="Edit">
+                                                        <span>✏️</span>
+                                                  </button>
+                                                  <button class="action-btn complete-btn" title="Mark Complete">
+                                                        <span>✓</span>
+                                                  </button>
+                                                  <button class="action-btn delete-btn" title="Cancel">
+                                                        <span>🗑️</span>
+                                                  </button>
+                                            </td>
+                                      </tr>
+                                </tbody>
+                          </table>
+                    </div>
+                    
+                    <!-- Table Summary -->
+                    <div class="table-summary">
+                          <div class="summary-stats">
+                                <div class="stat-item">
+                                      <span class="stat-number" id="totalAppointments">5</span>
+                                      <span class="stat-label">Total</span>
+                                </div>
+                                <div class="stat-item">
+                                      <span class="stat-number" id="todayAppointments">1</span>
+                                      <span class="stat-label">Today</span>
+                                </div>
+                                <div class="stat-item">
+                                      <span class="stat-number" id="upcomingAppointments">3</span>
+                                      <span class="stat-label">Upcoming</span>
+                                </div>
+                                <div class="stat-item">
+                                      <span class="stat-number" id="completedAppointments">1</span>
+                                      <span class="stat-label">Completed</span>
+                                </div>
+                          </div>
+                    </div>
+              </div>
+            </div>
+      </div>
+      
+      <script>
+            // Update current date and time
+            function updateDateTime() {
+                  const now = new Date();
+                  const options = { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                  };
+                  document.getElementById('currentDateTime').textContent = now.toLocaleDateString('en-US', options);
+            }
+
+            // Filter functionality
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                  btn.addEventListener('click', function() {
+                        // Remove active class from all buttons
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                        
+                        const filter = this.getAttribute('data-filter');
+                        filterAppointments(filter);
+                  });
+            });
+
+            // Filter appointments function
+            function filterAppointments(filter) {
+                  const rows = document.querySelectorAll('.appointment-row');
+                  rows.forEach(row => {
+                        if (filter === 'all') {
+                              row.style.display = '';
+                        } else {
+                              const status = row.getAttribute('data-status');
+                              row.style.display = status === filter ? '' : 'none';
+                        }
+                  });
+                  updateStats();
+            }
+
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', function() {
+                  const searchTerm = this.value.toLowerCase();
+                  const rows = document.querySelectorAll('.appointment-row');
+                  
+                  rows.forEach(row => {
+                        const patientName = row.querySelector('.patient-info span').textContent.toLowerCase();
+                        const phoneNumber = row.querySelector('.phone-number').textContent.toLowerCase();
+                        
+                        if (patientName.includes(searchTerm) || phoneNumber.includes(searchTerm)) {
+                              row.style.display = '';
+                        } else {
+                              row.style.display = 'none';
+                        }
+                  });
+            });
+
+            // Update statistics
+            function updateStats() {
+                  const visibleRows = document.querySelectorAll('.appointment-row[style=""], .appointment-row:not([style])');
+                  document.getElementById('totalAppointments').textContent = visibleRows.length;
+            }
+
+            // Action button handlers
+            document.querySelectorAll('.action-btn').forEach(btn => {
+                  btn.addEventListener('click', function() {
+                        const action = this.className.split(' ')[1]; // get second class (edit-btn, complete-btn, etc.)
+                        const row = this.closest('.appointment-row');
+                        const patientName = row.querySelector('.patient-info span').textContent;
+                        
+                        switch(action) {
+                              case 'edit-btn':
+                                    alert(`Edit appointment for ${patientName}`);
+                                    break;
+                              case 'complete-btn':
+                                    if(confirm(`Mark appointment with ${patientName} as completed?`)) {
+                                          row.setAttribute('data-status', 'completed');
+                                          row.querySelector('.status-badge').textContent = 'Completed';
+                                          row.querySelector('.status-badge').className = 'status-badge completed';
+                                    }
+                                    break;
+                              case 'delete-btn':
+                                    if(confirm(`Cancel appointment with ${patientName}?`)) {
+                                          row.remove();
+                                          updateStats();
+                                    }
+                                    break;
+                              case 'view-btn':
+                                    alert(`View details for ${patientName}`);
+                                    break;
+                        }
+                  });
+            });
+
+            // Add appointment button
+            document.getElementById('addAppointmentBtn').addEventListener('click', function() {
+                  alert('Add new appointment functionality - coming soon!');
+            });
+
+            // Navigation functionality
+            document.querySelectorAll('.nav-item').forEach(item => {
+                  item.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href && href !== '#') {
+                              return; // Let the browser handle the navigation
+                        }
+                        
+                        e.preventDefault();
+                        
+                        // Remove active class from all items
+                        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                        
+                        // Add active class to clicked item
+                        this.classList.add('active');
+                        
+                        const page = this.getAttribute('data-page');
+                        console.log('Navigating to:', page);
+                  });
+            });
+
+            // Initialize
+            updateDateTime();
+            setInterval(updateDateTime, 60000); // Update every minute
+      </script>
+</body>
+</html>

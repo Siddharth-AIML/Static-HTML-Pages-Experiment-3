@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, width=device-width">
+
+      <link rel="stylesheet" href="../styles/desktop1.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius Sans One:wght@400&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Flow Block:wght@400&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Flow Circular:wght@400&display=swap" />
+      
+      <style>
+            .error-message {
+                  color: #ff4444;
+                  font-size: 12px;
+                  margin-top: 5px;
+                  display: none;
+                  font-family: 'Poppins', sans-serif;
+            }
+            
+            .input-field.error {
+                  border-color: #ff4444 !important;
+                  box-shadow: 0 0 10px rgba(255, 68, 68, 0.3) !important;
+            }
+            
+            .input-field.success {
+                  border-color: #4CAF50 !important;
+                  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3) !important;
+            }
+      </style>
+</head>
+<body>
+      <div class="desktop-1">
+            <!-- Background elements -->
+            <img class="vector-icon" alt="" src="../img/gradient.svg">
+            <img class="adobe-express-file-1" alt="" src="../img/logo.png">
+            
+            <!-- Side text -->
+            <div class="welcome-to-curely2">WELCOME TO CURELY</div>
+            <div class="your-one-stop-container">
+                  <p class="your-one-stop">YOUR ONE STOP</p>
+                  <p class="your-one-stop">HEALTH PLATFORM</p>
+            </div>
+            
+            <!-- Main login form container -->
+            <div class="login-form-container">
+                  <div class="welcome-to-curely">WELCOME TO CURELY</div>
+                  
+                  <!-- Email input -->
+                  <div class="doctor-button">
+                    <input type="email" id="emailInput" class="input-field" placeholder="EMAIL ADDRESS" required>
+                    <div id="emailError" class="error-message"></div>
+                  </div>
+                  
+                  <!-- Password input -->
+                  <div class="doctor-button1">
+                    <input type="password" id="passwordInput" class="input-field" placeholder="PASSWORD" required>
+                    <div id="passwordError" class="error-message"></div>
+                  </div>
+                  
+                  <!-- Login button -->
+                  <div class="login" id="lOGINContainer">
+                    <div class="login-child"></div>
+                    <div class="login1">LOGIN</div>
+                    <div class="dont-have-an">DON'T HAVE AN ACCOUNT?</div>
+                  </div>
+                  
+                  <!-- Signup button -->
+                  <div class="doctor-button2" id="signupButton">
+                    <div class="doctor-button-inner"></div>
+                    <div class="signup">SIGNUP</div>
+                  </div>
+            </div>
+            
+            <!-- Decorative lines (optional) -->
+            <img class="desktop-1-child" alt="" src="Line 1.svg">
+            <div class="desktop-1-item"></div>
+      </div>
+      
+      <script>
+            // Get form elements
+            const emailInput = document.getElementById("emailInput");
+            const passwordInput = document.getElementById("passwordInput");
+            const emailError = document.getElementById("emailError");
+            const passwordError = document.getElementById("passwordError");
+            const loginButton = document.getElementById("lOGINContainer");
+            const signupButton = document.getElementById("signupButton");
+
+            // Email validation function
+            function validateEmail(email) {
+                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                  return emailRegex.test(email);
+            }
+
+            // Password validation function with number requirement
+            function validatePassword(password) {
+                  const errors = [];
+                  
+                  // Check length (6-15 characters)
+                  if (password.length < 6) {
+                        errors.push("at least 6 characters");
+                  }
+                  if (password.length > 15) {
+                        errors.push("no more than 15 characters");
+                  }
+                  
+                  // Check for special character
+                  const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+                  if (!specialCharRegex.test(password)) {
+                        errors.push("one special character");
+                  }
+                  
+                  // Check for capital letter
+                  const capitalLetterRegex = /[A-Z]/;
+                  if (!capitalLetterRegex.test(password)) {
+                        errors.push("one capital letter");
+                  }
+                  
+                  // Check for number
+                  const numberRegex = /[0-9]/;
+                  if (!numberRegex.test(password)) {
+                        errors.push("one number");
+                  }
+                  
+                  return errors;
+            }
+
+            // Show error message
+            function showError(element, errorElement, message) {
+                  element.classList.add("error");
+                  element.classList.remove("success");
+                  errorElement.textContent = message;
+                  errorElement.style.display = "block";
+            }
+
+            // Show success
+            function showSuccess(element, errorElement) {
+                  element.classList.add("success");
+                  element.classList.remove("error");
+                  errorElement.style.display = "none";
+            }
+
+            // Real-time email validation
+            emailInput.addEventListener("input", function() {
+                  const email = this.value.trim();
+                  
+                  if (email === "") {
+                        emailError.style.display = "none";
+                        this.classList.remove("error", "success");
+                        return;
+                  }
+                  
+                  if (!validateEmail(email)) {
+                        showError(this, emailError, "Please enter a valid email address");
+                  } else {
+                        showSuccess(this, emailError);
+                  }
+            });
+
+            // Real-time password validation
+            passwordInput.addEventListener("input", function() {
+                  const password = this.value;
+                  
+                  if (password === "") {
+                        passwordError.style.display = "none";
+                        this.classList.remove("error", "success");
+                        return;
+                  }
+                  
+                  const errors = validatePassword(password);
+                  
+                  if (errors.length > 0) {
+                        const errorMessage = "Password must have: " + errors.join(", ");
+                        showError(this, passwordError, errorMessage);
+                  } else {
+                        showSuccess(this, passwordError);
+                  }
+            });
+
+            // Login button click handler
+            if (loginButton) {
+                  loginButton.addEventListener("click", function (e) {
+                        const email = emailInput.value.trim();
+                        const password = passwordInput.value;
+                        let isValid = true;
+
+                        // Validate email
+                        if (email === "") {
+                              showError(emailInput, emailError, "Email is required");
+                              isValid = false;
+                        } else if (!validateEmail(email)) {
+                              showError(emailInput, emailError, "Please enter a valid email address");
+                              isValid = false;
+                        }
+
+                        // Validate password
+                        if (password === "") {
+                              showError(passwordInput, passwordError, "Password is required");
+                              isValid = false;
+                        } else {
+                              const passwordErrors = validatePassword(password);
+                              if (passwordErrors.length > 0) {
+                                    const errorMessage = "Password must have: " + passwordErrors.join(", ");
+                                    showError(passwordInput, passwordError, errorMessage);
+                                    isValid = false;
+                              }
+                        }
+
+                        // If validation passes, redirect to dashboard
+                        if (isValid) {
+                              alert("Login successful! Redirecting to dashboard...");
+                              window.location.href = "desktop-3.html";
+                        } else {
+                              alert("Please fix the errors before proceeding");
+                        }
+                  });
+            }
+            
+            // Signup button click handler - redirects to desktop-2.html
+            if (signupButton) {
+                  signupButton.addEventListener("click", function (e) {
+                        const email = emailInput.value.trim();
+                        const password = passwordInput.value;
+                        let isValid = true;
+
+                        // Validate email for signup
+                        if (email === "") {
+                              showError(emailInput, emailError, "Email is required");
+                              isValid = false;
+                        } else if (!validateEmail(email)) {
+                              showError(emailInput, emailError, "Please enter a valid email address");
+                              isValid = false;
+                        }
+
+                        // Validate password for signup
+                        if (password === "") {
+                              showError(passwordInput, passwordError, "Password is required");
+                              isValid = false;
+                        } else {
+                              const passwordErrors = validatePassword(password);
+                              if (passwordErrors.length > 0) {
+                                    const errorMessage = "Password must have: " + passwordErrors.join(", ");
+                                    showError(passwordInput, passwordError, errorMessage);
+                                    isValid = false;
+                              }
+                        }
+
+                        // If validation passes, redirect to role selection page
+                        if (isValid) {
+                              alert("Signup successful! Please select your role...");
+                              window.location.href = "desktop-2.html";
+                        } else {
+                              alert("Please fix the errors before proceeding");
+                        }
+                  });
+            }
+      </script>
+</body>
+</html>

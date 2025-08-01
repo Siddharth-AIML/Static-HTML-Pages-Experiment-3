@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, width=device-width">
+      
+      <link rel="stylesheet" href="../styles/desktop5.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius Sans One:wght@400&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Miriam Libre:wght@600&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karma:wght@400&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" />
+</head>
+<body>
+      <div class="desktop-5">
+            <!-- Logo positioned on right side -->
+            <img class="adobe-express-file-1" alt="" src="../img/logo.png">
+            
+            <!-- Sidebar -->
+            <div class="sidebar">
+                  <img class="vector-icon" alt="" src="../img/Vector.svg">
+                  
+                  <!-- Logo and brand -->
+                  <div class="brand-section">
+                    <div class="curely">Curely</div>
+                  </div>
+                  
+                  <!-- Navigation menu -->
+                  <nav class="nav-menu">
+                    <a href="desktop-3.html" class="nav-item" data-page="dashboard">
+                          <span>DASHBOARD</span>
+                    </a>
+                    <a href="desktop-4.html" class="nav-item" data-page="appointments">
+                          <span>APPOINTMENTS</span>
+                    </a>
+                   
+                    <a href="#" class="nav-item active" data-page="prescriptions">
+                          <span>PRESCRIPTIONS</span>
+                    </a>
+                    <a href="desktop-6.html" class="nav-item" data-page="reports">
+                          <span>REPORTS</span>
+                    </a>
+                  </nav>
+                  
+                  <!-- Settings -->
+                  <div class="settings">
+                    <img class="icon" alt="" src="../img/Settings.svg">
+                  </div>
+            </div>
+            
+            <!-- Main content area -->
+            <div class="main-content">
+                  <!-- Header -->
+                  <header class="header">
+                    <h1 class="welcome-dr-xyz">WELCOME DR Kulkarni</h1>
+                    <div class="date-time" id="currentDateTime"></div>
+                  </header>
+                  
+                  <!-- Prescription content -->
+                  <div class="prescription-content">
+                    <div class="page-header">
+                          <h2 class="page-title">NEW PRESCRIPTION</h2>
+                    </div>
+                    
+                    <!-- Prescription Form -->
+                    <div class="prescription-form">
+                          <form id="prescriptionForm">
+                                <!-- Patient Information -->
+                                <div class="form-section">
+                                      <h3 class="section-title">Patient Information</h3>
+                                      <div class="form-row">
+                                            <div class="form-group">
+                                                  <label for="patientName">Patient Name</label>
+                                                  <input type="text" id="patientName" name="patientName" required>
+                                            </div>
+                                            <div class="form-group">
+                                                  <label for="patientAge">Age</label>
+                                                  <input type="number" id="patientAge" name="patientAge" min="1" max="120" required>
+                                            </div>
+                                      </div>
+                                      <div class="form-row">
+                                            <div class="form-group">
+                                                  <label for="patientWeight">Weight (kg)</label>
+                                                  <input type="number" id="patientWeight" name="patientWeight" min="1" step="0.1">
+                                            </div>
+                                            <div class="form-group">
+                                                  <label for="patientGender">Gender</label>
+                                                  <select id="patientGender" name="patientGender" required>
+                                                        <option value="">Select Gender</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                        <option value="other">Other</option>
+                                                  </select>
+                                            </div>
+                                      </div>
+                                </div>
+                                
+                                <!-- Symptoms -->
+                                <div class="form-section">
+                                      <h3 class="section-title">Symptoms & Diagnosis</h3>
+                                      <div class="form-group full-width">
+                                            <label for="symptoms">Symptoms</label>
+                                            <textarea id="symptoms" name="symptoms" rows="3" placeholder="Describe patient symptoms..."></textarea>
+                                      </div>
+                                      <div class="form-group full-width">
+                                            <label for="diagnosis">Diagnosis</label>
+                                            <textarea id="diagnosis" name="diagnosis" rows="2" placeholder="Enter diagnosis..."></textarea>
+                                      </div>
+                                </div>
+                                
+                                <!-- Medication -->
+                                <div class="form-section">
+                                      <h3 class="section-title">Medication</h3>
+                                      <div id="medicationList">
+                                            <div class="medication-item">
+                                                  <div class="form-row">
+                                                        <div class="form-group">
+                                                              <label>Medicine Name</label>
+                                                              <input type="text" name="medicineName[]" placeholder="Enter medicine name" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                              <label>Dosage</label>
+                                                              <input type="text" name="dosage[]" placeholder="e.g., 500mg" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                              <label>Frequency</label>
+                                                              <select name="frequency[]" required>
+                                                                    <option value="">Select</option>
+                                                                    <option value="once">Once daily</option>
+                                                                    <option value="twice">Twice daily</option>
+                                                                    <option value="thrice">Thrice daily</option>
+                                                                    <option value="four">Four times daily</option>
+                                                              </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                              <label>Duration</label>
+                                                              <input type="text" name="duration[]" placeholder="e.g., 7 days" required>
+                                                        </div>
+                                                        <button type="button" class="remove-medication" onclick="removeMedication(this)">×</button>
+                                                  </div>
+                                                  <div class="form-group full-width">
+                                                        <label>Instructions</label>
+                                                        <input type="text" name="instructions[]" placeholder="e.g., Take after meals">
+                                                  </div>
+                                            </div>
+                                      </div>
+                                      <button type="button" class="add-medication" onclick="addMedication()">+ Add Another Medicine</button>
+                                </div>
+                                
+                                <!-- Additional Notes -->
+                                <div class="form-section">
+                                      <h3 class="section-title">Additional Notes</h3>
+                                      <div class="form-group full-width">
+                                            <label for="notes">Doctor's Notes</label>
+                                            <textarea id="notes" name="notes" rows="3" placeholder="Any additional instructions or notes..."></textarea>
+                                      </div>
+                                </div>
+                                
+                                <!-- Form Actions -->
+                                <div class="form-actions">
+                                      <button type="button" class="btn-secondary" onclick="clearForm()">Clear Form</button>
+                                      <button type="submit" class="btn-primary">Generate Prescription</button>
+                                </div>
+                          </form>
+                    </div>
+              </div>
+            </div>
+      </div>
+      
+      <script>
+            // Update current date and time
+            function updateDateTime() {
+                  const now = new Date();
+                  const options = { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                  };
+                  document.getElementById('currentDateTime').textContent = now.toLocaleDateString('en-US', options);
+            }
+
+            // Add medication function
+            function addMedication() {
+                  const medicationList = document.getElementById('medicationList');
+                  const newMedication = document.querySelector('.medication-item').cloneNode(true);
+                  
+                  // Clear input values
+                  newMedication.querySelectorAll('input, select, textarea').forEach(input => {
+                        input.value = '';
+                  });
+                  
+                  medicationList.appendChild(newMedication);
+            }
+
+            // Remove medication function
+            function removeMedication(button) {
+                  const medicationItems = document.querySelectorAll('.medication-item');
+                  if (medicationItems.length > 1) {
+                        button.closest('.medication-item').remove();
+                  }
+            }
+
+            // Clear form function
+            function clearForm() {
+                  if (confirm('Are you sure you want to clear all form data?')) {
+                        document.getElementById('prescriptionForm').reset();
+                        
+                        // Keep only one medication item
+                        const medicationList = document.getElementById('medicationList');
+                        const firstMedication = medicationList.querySelector('.medication-item');
+                        medicationList.innerHTML = '';
+                        medicationList.appendChild(firstMedication);
+                        firstMedication.querySelectorAll('input, select, textarea').forEach(input => {
+                              input.value = '';
+                        });
+                  }
+            }
+
+            // Form submission
+            document.getElementById('prescriptionForm').addEventListener('submit', function(e) {
+                  e.preventDefault();
+                  
+                  // Collect form data
+                  const formData = new FormData(this);
+                  const prescriptionData = {
+                        patient: {
+                              name: formData.get('patientName'),
+                              age: formData.get('patientAge'),
+                              weight: formData.get('patientWeight'),
+                              gender: formData.get('patientGender')
+                        },
+                        symptoms: formData.get('symptoms'),
+                        diagnosis: formData.get('diagnosis'),
+                        medications: [],
+                        notes: formData.get('notes')
+                  };
+                  
+                  // Collect medications
+                  const medicineNames = formData.getAll('medicineName[]');
+                  const dosages = formData.getAll('dosage[]');
+                  const frequencies = formData.getAll('frequency[]');
+                  const durations = formData.getAll('duration[]');
+                  const instructions = formData.getAll('instructions[]');
+                  
+                  for (let i = 0; i < medicineNames.length; i++) {
+                        if (medicineNames[i]) {
+                              prescriptionData.medications.push({
+                                    name: medicineNames[i],
+                                    dosage: dosages[i],
+                                    frequency: frequencies[i],
+                                    duration: durations[i],
+                                    instructions: instructions[i]
+                              });
+                        }
+                  }
+                  
+                  console.log('Prescription Data:', prescriptionData);
+                  alert('Prescription generated successfully!');
+            });
+
+            // Navigation functionality
+            document.querySelectorAll('.nav-item').forEach(item => {
+                  item.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href && href !== '#') {
+                              return; // Let the browser handle the navigation
+                        }
+                        
+                        e.preventDefault();
+                        
+                        // Remove active class from all items
+                        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                        
+                        // Add active class to clicked item
+                        this.classList.add('active');
+                        
+                        const page = this.getAttribute('data-page');
+                        console.log('Navigating to:', page);
+                  });
+            });
+
+            // Initialize
+            updateDateTime();
+            setInterval(updateDateTime, 60000); // Update every minute
+      </script>
+</body>
+</html>
